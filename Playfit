@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main() {
+	short test;
+	cin>>test;
+	while(test--)
+	{
+	    int n;
+	    scanf("%d",&n);
+	    vector<int> vec;
+	    for(int i=0;i<n;i++)
+	    {
+	        int x;
+	        scanf("%d",&x);
+	        vec.push_back(x);
+	    }
+	    
+	    int mx = INT_MIN;
+	    int mi = INT_MAX;
+	    int mx_in = INT_MIN;
+	    int mi_in = INT_MAX;
+	    int score = 0;
+	    for(int i=0;i<n;i++)
+	    {
+	        if(mx<vec[i]){
+	            mx = vec[i];
+	            mx_in = i;
+	        }
+	         if(mi>vec[i]){
+	            mi = vec[i];
+	            mi_in = i;
+	            
+	             mx = vec[i];
+	             mx_in = i;
+	        }
+	        
+	        if(mx_in>mi_in){
+	            score = max(score , mx - mi);
+	        }
+	        
+	    }
+	    if(score<=0){
+	        printf("UNFIT\n");
+	    }
+	    else{
+	        printf("%d\n",score);
+	    }
+	}
+	
+	return 0;
+}
+
+
+
